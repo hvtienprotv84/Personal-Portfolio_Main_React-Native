@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "H.Vĩnh Tiến Personal",
+    "slug": "myapp",
+    "description": "This is a portfolio mobile-app bootstraped with expo-app using react-native.",
+    "version": "1.0.1",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon2.jpg",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.huynhvinhtien.myapp"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "41fa6690-310c-4fdf-81a3-ebb4b31f3a73"
+      }
+    }
+  }
+}
