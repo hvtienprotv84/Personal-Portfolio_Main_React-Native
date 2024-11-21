@@ -150,8 +150,8 @@ const styles = StyleSheet.create({
   },
   tinyLogo:{
     maxWidth: 100,
-    width: 50,
-    height: 50,
+    width: 40,
+    height: 40,
     // backgroundColor: "red",
     marginLeft: 20,
   },

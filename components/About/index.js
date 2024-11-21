@@ -14,15 +14,18 @@ const About = ({item}) => {
   
   const data = [
     "JavaScript",
-    "Typescript",
-    "JavaScript",
-    "Typescript",
-    "JavaScript",
-    "Typescript",
-    "JavaScript",
-    "Typescript",
-    "JavaScript",
-    "Typescript",
+    "TypeScript",
+    "ReactJS",
+    "NextJS",
+    "VueJS",
+    "Angular",
+    "Redux",
+    "React Native",
+    "Tailwind CSS",
+    "SASS",
+    "Bootstrap",
+    "Docker", 
+    "Git",
   ];
 
   return (
@@ -85,19 +88,48 @@ const About = ({item}) => {
             if (item === 'JavaScript') {
               itemColor = '#FFD700'; // Màu vàng cho JavaScript
               imageSource = require('../../assets/skill/js.png'); // Đường dẫn ảnh JavaScript
-            } else if (item === 'Typescript') {
+            } else if (item === 'TypeScript') {
               itemColor = '#1E90FF'; // Màu xanh dương cho React
               imageSource = require('../../assets/skill/ts.png'); // Đường dẫn ảnh React
-            } else if (item === 'Typescript') {
-              imageSource = require('../../assets/skill/js.png'); // Đường dẫn ảnh JavaScript
-            } else if (item === 'Typescript') {
-              imageSource = require('../../assets/skill/ts.png'); // Đường dẫn ảnh React
-            } else if (item === 'Typescript') {
-              imageSource = require('../../assets/skill/js.png'); // Đường dẫn ảnh JavaScript
-            } else if (item === 'Typescript') {
-              imageSource = require('../../assets/skill/ts.png'); // Đường dẫn ảnh React
-            } else if (item === 'Typescript') {
-              imageSource = require('../../assets/skill/js.png'); // Đường dẫn ảnh JavaScript
+            } else if (item === 'ReactJS') {
+              itemColor = '#08ddff';             
+              imageSource = require('../../assets/skill/react.png');
+            } else if (item === 'NextJS') {
+              itemColor = '#ffffff';             
+              imageSource = require('../../assets/skill/next.png');
+            } else if (item === 'VueJS') {
+              itemColor = '#47ba87';             
+              imageSource = require('../../assets/skill/vue.png');
+            } else if (item === 'Angular') {
+              itemColor = '#e6303e';             
+              imageSource = require('../../assets/skill/angular.png');
+            } else if (item === 'Redux') {
+              itemColor = '#7a50be';             
+              imageSource = require('../../assets/skill/redux.png');
+            } else if (item === 'React Native') {
+              itemColor = '#08acda';             
+              imageSource = require('../../assets/skill/react-native.png');
+            } else if (item === 'Tailwind CSS') {
+              itemColor = '#1dc0cd';
+              imageSource = require('../../assets/skill/tailwind.png');
+            } else if (item === 'SASS') {
+              itemColor = '#f06292';             
+              imageSource = require('../../assets/skill/sass.png');
+            } else if (item === 'Bootstrap') {
+              itemColor = '#7c4dff';             
+              imageSource = require('../../assets/skill/bootstrap.png');
+            } else if (item === 'Docker') {
+              itemColor = '#2395ec';             
+              imageSource = require('../../assets/skill/docker.png');
+            } else if (item === 'Git') {
+              itemColor = '#f4511e';             
+              imageSource = require('../../assets/skill/git.png');
+            } else if (item === 'Redux') {
+              itemColor = '#7a50be';             
+              imageSource = require('../../assets/skill/redux.png');
+            } else if (item === 'React Native') {
+              itemColor = '#08acda';             
+              imageSource = require('../../assets/skill/react-native.png');
             }
 
             return (
@@ -188,7 +220,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     width: "55%",
-    marginLeft: -7,
+    marginLeft: -5,
     marginBottom: 7,
   },
   item: {
