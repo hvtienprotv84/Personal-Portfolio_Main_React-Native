@@ -146,20 +146,40 @@ const About = ({item}) => {
           keyExtractor={(item, index) => index.toString()}
         />
 
-        <Text style={styles.resume}>
-          Download my
-          <Text> </Text>
-          <Text
-            style={styles.link1}
-            onPress={() =>
-              Linking.openURL("https://www.abc.in.net/ABCResume.pdf")
-            }
-          >
-            resume
-          </Text>
-          <Text> </Text>
-          from here.
-        </Text>
+        <View style={styles.container_resume}>
+          {/* <Text style={styles.resume}>
+            Download my
+            <Text> </Text>
+              <Image
+                style={styles.logo_pdf}
+                source={require('../../assets/pdf.png')}
+              />
+              <Text
+                style={styles.link1}
+                onPress={() =>
+                  Linking.openURL("https://www.abc.in.net/ABCResume.pdf")
+                }
+              >
+                Resume
+              </Text>
+            <Text> </Text>
+            from here.
+          </Text> */}
+          <Text style={styles.resume}>Download My</Text>
+          <Image
+                style={styles.logo_pdf}
+                source={require('../../assets/pdf.png')}
+              />
+              <Text
+                style={styles.link1}
+                onPress={() =>
+                  Linking.openURL("https://www.abc.in.net/ABCResume.pdf")
+                }
+              >
+                Resume
+              </Text>
+              <Text style={styles.resume}>Here.</Text>
+        </View>
         <Image
           style={styles.image}
           source={require("../../assets/hero.png")}
@@ -208,8 +228,9 @@ const styles = StyleSheet.create({
   },
   link1: {
     color: "#64ffda",
-    marginLeft: 5,
     marginRight: 5,
+    fontWeight: "500",
+    fontSize: 18,
   },
   lists: {
     display: "flex",
@@ -230,9 +251,10 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   resume: {
-    marginTop: 15,
     fontSize: 18,
-    color: "#8892b0",
+    // color: "#8892b0",
+    color: "#ffffff",
+    fontWeight: "500",
   },
   image: {
     width: 250,
@@ -245,6 +267,17 @@ const styles = StyleSheet.create({
     width: 30, // Kích thước ảnh
     height: 30, // Kích thước ảnh
     marginLeft: 5,
+  },
+  logo_pdf:{
+    width: 25, // Kích thước ảnh
+    height: 25, // Kích thước ảnh
+  },
+  container_resume:{
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 20,
   },
 });
 

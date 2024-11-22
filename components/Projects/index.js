@@ -1,4 +1,4 @@
-import { SafeAreaView, StyleSheet, Text, View, Linking } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View, Linking, Image } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import React from "react";
@@ -6,16 +6,13 @@ import React from "react";
 const Projects = () => {
   const List = [
     {
-      name: "Portfolio",
+      name: "ReactJS Portfolio",
       description:
         "My portfolio website which shows me, my experience, works, and projects.",
       tech: [
-        "next-js",
-        "tailwindcss",
-        "javascript",
-        "css3",
-        "seo-friendly",
-        "animate.css",
+        "ReactJS",
+        "JavaScript",
+        "Tailwind CSS",
       ],
       links: [
         {
@@ -29,18 +26,13 @@ const Projects = () => {
       ],
     },
     {
-      name: "Checkbox Data Filter",
+      name: "VueJS Portfolio",
       description:
         "A sample product listing page with filter functionality like Flipkart.",
       tech: [
-        "react",
-        "axios",
-        "bootstrap",
-        "react-outside-click-handler",
-        "seo-friendly",
-        "css3",
-        "javascript",
-        "react-icons",
+        "VueJS",
+        "JavaScript",
+        "Tailwind CSS",
       ],
       links: [
         {
@@ -54,15 +46,14 @@ const Projects = () => {
       ],
     },
     {
-      name: "My Blog",
+      name: "NextJS Portfolio",
       description: "A Blog website created using next-js & next-js api.",
       tech: [
-        "react",
-        "axios",
-        "tailwindcss",
-        "nextjs-progressbar",
-        "react-markdown",
-        "react-mailchimp-subscribe",
+        "NextJS",
+        "JavaScript",
+        "TypeScript",
+        "ReactJS",
+        "Tailwind CSS",
       ],
       links: [
         {
@@ -76,16 +67,12 @@ const Projects = () => {
       ],
     },
     {
-      name: "Online Written Ability Test",
+      name: "React Native Portfolio",
       description:
         "An online written ability test react app with more than 10 sets & choice of a time limit.",
       tech: [
-        "react",
-        "react-bootstrap",
-        "react-router-dom",
-        "javascript",
-        "css3",
-        "react-avatar",
+        "React Native",
+        "JavaScript",
       ],
       links: [
         {
@@ -99,17 +86,13 @@ const Projects = () => {
       ],
     },
     {
-      name: "Sample Blog",
+      name: "Angular Portfolio",
       description: "A sample blog page using react, redux & firebase.",
       tech: [
-        "react",
-        "react-redux",
-        "redux-thunk",
-        "firebase",
-        "react-redux-firebase",
-        "redux-firestore",
-        "moment",
-        "materialise-css",
+        "Angular",
+        "JavaScript",
+        "TypeScript",
+        "CSS",
       ],
       links: [
         {
@@ -122,35 +105,35 @@ const Projects = () => {
         },
       ],
     },
-    {
-      name: "My Expenses",
-      description: "An expense tracker page to track your expenses.",
-      tech: [
-        "react",
-        "react-redux",
-        "typescript",
-        "react-toastify",
-        "react-modal",
-        "redux-devtools-extension",
-      ],
-      links: [
-        {
-          iconName: "github",
-          url: "https://github.com/abc-26/MyExpenses",
-        },
-        {
-          iconName: "external-link",
-          url: "https://my-expenses-tau.vercel.app/",
-        },
-      ],
-    },
+    // {
+    //   name: "My Expenses",
+    //   description: "An expense tracker page to track your expenses.",
+    //   tech: [
+    //     "react",
+    //     "react-redux",
+    //     "typescript",
+    //     "react-toastify",
+    //     "react-modal",
+    //     "redux-devtools-extension",
+    //   ],
+    //   links: [
+    //     {
+    //       iconName: "github",
+    //       url: "https://github.com/abc-26/MyExpenses",
+    //     },
+    //     {
+    //       iconName: "external-link",
+    //       url: "https://my-expenses-tau.vercel.app/",
+    //     },
+    //   ],
+    // },
   ];
   return (
     <SafeAreaView>
       <View style={styles.section} id="projects">
         <View style={styles.headingDiv}>
           <Text style={[styles.heading, styles.mainColor]}>03. </Text>
-          <Text style={styles.heading}>Significant Projects</Text>
+          <Text style={styles.heading}>Personal Projects</Text>
           <View
             style={{
               flex: 1,
@@ -174,21 +157,41 @@ const Projects = () => {
                       name="github"
                       stye={styles.github}
                       size={20}
-                      color="#8892b0"
+                      // color="#8892b0"
+                      color="#ffffff"
                       onPress={() => Linking.openURL(data.links[0].url)}
                     />
                     <Feather
                       name="external-link"
                       size={20}
-                      color="#8892b0"
+                      // color="#8892b0"
+                      color="#ffffff"
                       onPress={() => Linking.openURL(data.links[1].url)}
                     />
                   </View>
                 </View>
                 <View style={styles.projectBody}>
-                  <Text style={styles.name}>{data.name}</Text>
+                  <View style={styles.projectname_logo}>
+                    <Text style={styles.name}>{data.name}</Text>
+                      <Image
+                        source={
+                          data.name === 'ReactJS Portfolio'
+                            ? require('../../assets/skill/react.png') // đường dẫn đến ảnh React
+                            : data.name === 'VueJS Portfolio'
+                            ? require('../../assets/skill/vue.png') // đường dẫn đến ảnh Vue
+                            : data.name === 'NextJS Portfolio'
+                            ? require('../../assets/skill/next.png')
+                            : data.name === 'React Native Portfolio'
+                            ? require('../../assets/skill/react-native.png')
+                            : data.name === 'Angular Portfolio'
+                            ? require('../../assets/skill/angular.png')
+                            : null // không hiển thị ảnh nếu không phải tên phù hợp
+                        }
+                        style={styles.projectImage} // kiểu cho ảnh (nếu cần)
+                      />
+                  </View>
                   <Text style={styles.desc}>{data.description}</Text>
-                  <View style={styles.techList}>
+                  {/* <View style={styles.techList}>
                     {data.tech.map((techData) => {
                       return (
                         <Text style={styles.tech} key={techData}>
@@ -196,7 +199,38 @@ const Projects = () => {
                         </Text>
                       );
                     })}
+                  </View> */}
+
+                  <View style={styles.techList}>
+                    {data.tech.map((techData) => {
+                      return (
+                        <View key={techData} style={styles.techWrapper}>
+                          {/* Thẻ View chứa nền bên trái */}
+                          <View
+                            style={[
+                              styles.techBackground,
+                              techData === 'JavaScript' ? { backgroundColor: '#FFD700' } :
+                              techData === 'ReactJS' ? { backgroundColor: '#08ddff' } :
+                              techData === 'Tailwind CSS' ? { backgroundColor: '#1dc0cd' } :
+                              techData === 'VueJS' ? { backgroundColor: '#47ba87' } :
+                              techData === 'TypeScript' ? { backgroundColor: '#1E90FF' } :
+                              techData === 'NextJS' ? { backgroundColor: '#ffffff' } :
+                              techData === 'Angular' ? { backgroundColor: '#e6303e' } :
+                              techData === 'CSS' ? { backgroundColor: '#2d53e5' } :
+                              techData === 'React Native' ? { backgroundColor: '#08acda' } :
+                              null // Không thay đổi màu nền nếu không phải Java hoặc React
+                            ]}
+                          />
+
+                          {/* Thẻ Text chứa chữ */}
+                          <Text style={styles.tech}>
+                            {techData}
+                          </Text>
+                        </View>
+                      );
+                    })}
                   </View>
+                  
                 </View>
               </View>
             );
@@ -269,12 +303,25 @@ const styles = StyleSheet.create({
   github: {
     marginRight: 10,
   },
+  projectname_logo:{
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignContent: "center",
+  },
+  projectImage:{
+    width: 30,
+    height: 30,
+  },
   name: {
     fontSize: 20,
-    color: "#8892b0",
+    // color: "#8892b0",
+    color: "#ffffff",
     marginBottom: 15,
-    paddingLeft: 25,
-    paddingRight: 25,
+    // paddingLeft: 25,
+    paddingRight: 5,
+    fontWeight: "700"
+
   },
   desc: {
     fontSize: 16,
@@ -297,6 +344,17 @@ const styles = StyleSheet.create({
     marginRight: 10,
     lineHeight: 25,
     fontWeight: "500",
+  },
+  techWrapper: {
+    flexDirection: 'row', // Sắp xếp các phần tử theo chiều ngang
+    alignItems: 'center', // Căn chỉnh các phần tử theo chiều dọc
+    marginBottom: 5, // Khoảng cách giữa các phần tử
+  },
+  techBackground: {
+    width: 15, // Chiều rộng của nền (bên trái chữ)
+    height: 15, // Chiều cao của nền
+    marginRight: 5, // Khoảng cách giữa nền và chữ
+    borderRadius: 100, // Bo góc nền nếu muốn
   },
 });
 
