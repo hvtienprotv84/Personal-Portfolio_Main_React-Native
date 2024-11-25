@@ -22,7 +22,7 @@ const Hero = () => {
             const hours = now.getHours();
 
             const startHour = 8; // 8 giờ sáng
-            const endHour = 21;  // 9 giờ tối (21 giờ)
+            const endHour = 17;  // 9 giờ tối (21 giờ)
 
             if (hours >= startHour && hours < endHour) {
                 setStatus('Online');

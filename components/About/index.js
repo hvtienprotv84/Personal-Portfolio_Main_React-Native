@@ -184,6 +184,13 @@ const About = ({item}) => {
           style={styles.image}
           source={require("../../assets/hero.png")}
         />
+        <View style={styles.container_name_verification}>
+          <Text style={styles.name_verification}>Huỳnh Vĩnh Tiến</Text>
+          <Image
+          style={styles.image_verification}
+          source={require("../../assets/verification.webp")}
+        />
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -278,6 +285,23 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 20,
+  },
+  container_name_verification:{
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",   
+    marginTop: 10, 
+  },
+  image_verification:{
+    width: 30, // Kích thước ảnh
+    height: 30, // Kích thước ảnh
+    marginLeft: 5,
+  },
+  name_verification:{
+    fontSize: 24,
+    color: "#ffffff",
+    fontWeight: 700,
   },
 });
 
