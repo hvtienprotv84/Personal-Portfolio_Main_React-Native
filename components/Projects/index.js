@@ -245,7 +245,8 @@ const styles = StyleSheet.create({
   section: {
     paddingLeft: "8%",
     paddingRight: "8%",
-    marginTop: "2%",
+    // marginTop: "2%",
+    marginTop: "-70%",
   },
   heading: {
     fontSize: 20,

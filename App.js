@@ -12,7 +12,7 @@ import {
 import { AppBar, IconButton, Button } from "@react-native-material/core";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { AntDesign } from "@expo/vector-icons";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Experience from "./components/Experience";
@@ -35,6 +35,20 @@ const App = () => {
     });
     setHamMenuOpen(false);
   };
+
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(new Date()); // Cập nhật thời gian mỗi giây
+    }, 1000);
+
+    return () => clearInterval(interval); // Dọn dẹp khi component bị hủy
+  }, []);
+
+  // Định dạng ngày giờ (theo kiểu dd/mm/yyyy hh:mm:ss)
+  const formattedTime = `${time.getDate()}/${time.getMonth() + 1}/${time.getFullYear()} ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
+
 
   return (
     <SafeAreaView style={styles.home}>
@@ -68,6 +82,9 @@ const App = () => {
             source={require('./assets/logo_1.png')}
           />
             {/* <Text style={styles.V}>Huỳnh Vĩnh Tiến</Text> */}
+            <View style={styles.container_time}>
+              <Text style={styles.timeText}>{formattedTime}</Text>
+            </View>
           </View>
         )}
         trailing={(props) => (
@@ -96,7 +113,7 @@ const App = () => {
                 { key: "Experience", value: "02.", position: 1520 },
                 { key: "Projects", value: "03.", position: 2170 },
                 { key: "Contact", value: "04.", position: 4250 },
-                { key: "Contact123", value: "05.", position: 0 },
+                { key: "Back to Top", value: "🔝", position: 0 },
               ]}
               style={styles.lists}
               renderItem={({ item }) => (
@@ -129,6 +146,15 @@ const App = () => {
           setRef(ref);
         }}
       >
+
+      /* Back to Top */
+
+      <View style={styles.container_backtotop}>
+          <Text style={styles.item_backtotop} onPress={() => goToSection(0)}>
+            Top
+          </Text>
+      </View>
+
         <Hero />
         <About />
         <Experience />
@@ -160,25 +186,25 @@ const styles = StyleSheet.create({
   },
   V: {
     position: "absolute",
-    top: 6.5,
-    left: 38,
     fontSize: 19.5,
     color: "#64ffda",
+    width: 1000,
   },
   hamDiv: {
     width: "75%",
     height: "100%",
     zIndex: 9,
     position: "absolute",
-    top: 0,
+    top: 50,
     right: 0,
-    backgroundColor: "#020c1b",
+    backgroundColor: "#f03a17",
   },
   closeIcon: {
     marginTop: "15%",
     position: "absolute",
     right: "10%",
     zIndex: 99999999,
+    backgroundColor: "#00000000"
   },
   item: {
     color: "white",
@@ -193,9 +219,9 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   lists: {
-    marginTop: "40%",
-    marginLeft: "auto",
-    marginRight: "auto",
+    marginTop: "30%",
+    // marginLeft: "auto",
+    // marginRight: "auto",
   },
   list: {
     marginBottom: 10,
@@ -216,6 +242,17 @@ const styles = StyleSheet.create({
   },
   btnTitle: {
     fontSize: 18,
+  },
+  item_backtotop:{
+    position: 'absolute',
+    bottom: 20,  // Cách đáy màn hình 20px
+    right: 20,   // Cách phải màn hình 20px
+    backgroundColor: 'blue', // Màu nền của nút
+    padding: 10,
+    borderRadius: 5,
+  },
+  timeText:{
+    color: "#ffffff"
   },
 });
 
