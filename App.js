@@ -46,8 +46,8 @@ const App = () => {
     return () => clearInterval(interval); // Dọn dẹp khi component bị hủy
   }, []);
 
-  // Định dạng ngày giờ (theo kiểu dd/mm/yyyy hh:mm:ss)
-  const formattedTime = `${time.getDate()}/${time.getMonth() + 1}/${time.getFullYear()} ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
+  // Định dạng ngày giờ theo múi giờ Việt Nam (GMT+7)
+  const formattedTime = time.toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' });
 
 
   return (
