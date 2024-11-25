@@ -55,7 +55,7 @@ const App = () => {
       <StatusBar style="light" />
       <AppBar
         leading={(props) => (
-          <View>
+          <View style={styles.container_navbar}>
             {/* <Svg
               xmlns="http://www.w3.org/2000/svg"
               role="img"
@@ -81,10 +81,11 @@ const App = () => {
             style={styles.tinyLogo}
             source={require('./assets/logo_1.png')}
           />
-            {/* <Text style={styles.V}>Huỳnh Vĩnh Tiến</Text> */}
+
             <View style={styles.container_time}>
               <Text style={styles.timeText}>{formattedTime}</Text>
             </View>
+
           </View>
         )}
         trailing={(props) => (
@@ -191,20 +192,22 @@ const styles = StyleSheet.create({
     width: 1000,
   },
   hamDiv: {
-    width: "75%",
+    width: "60%",
     height: "100%",
     zIndex: 9,
     position: "absolute",
     top: 50,
     right: 0,
-    backgroundColor: "#f03a17",
+    backgroundColor: "#0a192f",
+    borderColor: "#64ffda",
+    borderWidth: 2,
+    borderStyle: "dashed"
   },
   closeIcon: {
     marginTop: "15%",
     position: "absolute",
     right: "10%",
     zIndex: 99999999,
-    backgroundColor: "#00000000"
   },
   item: {
     color: "white",
@@ -251,8 +254,18 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 5,
   },
+  container_navbar:{
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+
+  },
   timeText:{
-    color: "#ffffff"
+    color: "#ffffff",
+    fontSize: 18,
+    marginLeft: 55,
+    fontWeight: 700,
   },
 });
 

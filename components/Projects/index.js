@@ -252,7 +252,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "400",
     marginBottom: 25,
-    color: "#8892b0",
+    // color: "#8892b0",
+    color: "#ffffff",
   },
   headingDiv: {
     display: "flex",

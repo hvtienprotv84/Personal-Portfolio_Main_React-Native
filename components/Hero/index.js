@@ -1,6 +1,6 @@
 import { SafeAreaView, StyleSheet, Text, View, Linking, TouchableOpacity, Image } from "react-native";
 import { Button } from "@react-native-material/core";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TypeWriter from "../Typewriter";
 
 const Hero = () => {
@@ -14,6 +14,33 @@ const Hero = () => {
       .catch(err => console.error('An error occurred', err)); // Handle error if any
   };
 
+  const [status, setStatus] = useState('Offline');
+
+    useEffect(() => {
+        const checkStatus = () => {
+            const now = new Date();
+            const hours = now.getHours();
+
+            const startHour = 8; // 8 giờ sáng
+            const endHour = 21;  // 9 giờ tối (21 giờ)
+
+            if (hours >= startHour && hours < endHour) {
+                setStatus('Online');
+            } else {
+                setStatus('Offline');
+            }
+        };
+
+        // Kiểm tra trạng thái khi component được gắn vào DOM
+        checkStatus();
+
+        // Thiết lập kiểm tra trạng thái lại sau mỗi phút (60000 ms)
+        const interval = setInterval(checkStatus, 60000);
+
+        // Dọn dẹp interval khi component bị hủy
+        return () => clearInterval(interval);
+    }, []);
+
   return (
     <SafeAreaView>
       <View style={styles.section}>
@@ -26,6 +53,19 @@ const Hero = () => {
         <Text style={styles.shortDesc}>
           Software Engineer
         </Text>
+
+        <View style={styles.container_techBackground}>
+          <View 
+            style={[
+            styles.techBackground,
+            status === 'Online' ? { backgroundColor: '#02ff00' } :
+            status === 'Offline' ? { backgroundColor: '#92ad92' } :
+            null // Không thay đổi màu nền nếu không phải Java hoặc React
+            ]}>
+            <Text style={styles.status}>{status}</Text>
+          </View>
+        </View>
+
         <Text style={styles.description}>
           I&lsquo;m a Front-End developer based in Pune, India, specializing in
           developing high-quality websites with the latest technologies & best
@@ -155,7 +195,27 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center"
-    
+  },
+  container_techBackground:{
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    alignContent: "center"
+  },
+  status:{
+    color: "white",
+    fontSize: 20,
+    left: 22,
+    width: 200, // Chiều rộng của nền (bên trái chữ)
+    height: 200, // Chiều cao của nền
+    marginTop: -4,
+  },
+  techBackground: {
+    width: 18, // Chiều rộng của nền (bên trái chữ)
+    height: 18, // Chiều cao của nền
+    borderRadius: 500, // Bo góc nền nếu muốn
+    marginTop: 10,
   },
 });
 

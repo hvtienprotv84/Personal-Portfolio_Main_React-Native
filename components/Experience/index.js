@@ -78,8 +78,8 @@ const Experience = () => {
 
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    { key: "first", title: "University" },
-    { key: "second", title: "Intern" },
+    { key: "first", title: "University 🏫" },
+    { key: "second", title: "Intern 👨‍💻" },
   ]);
   const renderScene = SceneMap({
     first: FirstRoute,
@@ -159,13 +159,15 @@ const styles = StyleSheet.create({
   },
   item: {
     fontSize: 18,
-    color: "#8892b0",
+    // color: "#8892b0",
+    color: "#ffffff",
     width: "90%",
     lineHeight: 25,
   },
   title: {
     fontSize: 19,
-    color: "#8892b0",
+    // color: "#8892b0",
+    color: "#ffffff",
     marginTop: 25,
     marginBottom: 10,
     fontWeight: "500",
@@ -178,7 +180,8 @@ const styles = StyleSheet.create({
   },
   subTitle: {
     fontSize: 15,
-    color: "#8892b0",
+    // color: "#8892b0",
+    color: "#ffffff",
     marginBottom: 25,
     fontWeight: "500",
   },

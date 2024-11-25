@@ -3,6 +3,8 @@ import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 
 const Footer = () => {
+  const year = new Date().getFullYear();
+
   return (
     <SafeAreaView>
       <View style={styles.section}>
@@ -54,7 +56,8 @@ const Footer = () => {
               source={require('../../assets/vietnam.png')}
             />            
           </View>
-        <Text style={styles.copyright}>&copy; All Rights Reserved | 2024</Text>
+        {/* <Text style={styles.copyright}>&copy; All Rights Reserved | 2024</Text> */}
+        <Text style={styles.copyright}>&copy; All Rights Reserved | {year}</Text>
       </View>
     </SafeAreaView>
   );
